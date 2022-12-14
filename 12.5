@@ -1,0 +1,53 @@
+# include <iostream>
+# include <windows.h>
+# include <cmath>
+
+using namespace std;
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    int K; // переменная года
+    int n = 5; // переменная цвета
+    int g = 12;  // переменная животного
+    cout << "Введите год (целое число в диапазоне 0-2022):  "; // Создаем переменную и вводим число
+    cin >> K;
+    
+    if (K < 1984) {
+        n = n - ((1984 - K) % 60) / 12; //выявляем номер цвета для года меньше 1984
+        g = g - (1984 - K) % 12;  //выявляем номер животного для года меньше 1984
+    }
+    else
+    {
+        n = (K % 60) / 12 + 1;  //выявляем номер цвета для года начиная с  1984
+        g = (K - 1984) % 12 + 1;  //выявляем номер животного для года начиная с  1984
+    }
+
+    switch (n % 10) {       //Определяем цвет животного
+    case 1: cout << "Год зелен"; break;
+    case 2: cout << "Год красн"; break;
+    case 3: cout << "Год желт"; break;
+    case 4: cout << "Год бел"; break;
+    case 5: cout << "Год черн"; break;
+    }
+
+    switch (g % 100) {     //Определяем животного
+    case 1: cout << "ой крысы"; break;
+    case 2: cout << "ой коровы"; break;
+    case 3: cout << "ого тигра"; break;
+    case 4: cout << "ого зайца"; break;
+    case 5: cout << "ого дракона"; break;
+    case 6: cout << "ой змеи"; break;
+    case 7: cout << "ой лошади"; break;
+    case 8: cout << "ой овцы"; break;
+    case 9: cout << "ой обезьяны"; break;
+    case 10: cout << "ой курицы"; break;
+    case 11: cout << "ой собаки"; break;
+    case 12: cout << "ой свиньи"; break;
+    }
+   
+    cout << endl;
+    return 0;
+}
